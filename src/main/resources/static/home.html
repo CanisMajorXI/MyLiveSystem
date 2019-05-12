@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>维尼直播</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/navModule.css">
+    <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/navModule.js"></script>
+    <script src="js/mytools.js"></script>
+    <style>
+        section {
+        }
+        .recommend {
+            min-height: 500px;
+            background-color: white;
+            width: 70%;
+        }
+
+        .recommend {
+            background-color: white;
+        }
+        .recommend-box {
+            padding-top: 15px;
+            padding-bottom: 15px;
+            border-style: dashed;
+            border-color: #aaaaaa;
+            border-width: 0 0 2px;
+            height: 130px;
+        }
+        .recommend-box:hover{
+            background-color: #cecece;
+        }
+        .recommend-box img{
+            width: 100px;
+            height:100px;
+        }
+        .recommend-box .title {
+            margin-left: -4%;
+            font-size: 30px;
+            font-weight: bold;
+        }
+        .recommend-box .content {
+            position: relative;
+            height: 100%;
+        }
+        .recommend-box .content .author {
+            position: absolute;
+            bottom: 0;
+            margin-left: -10px;
+            font-size: 17px;
+            font-style: italic;
+        }
+        .recommend-box .info-group {
+            position: absolute;
+            font-size: 16px;
+            right: 15px;
+            bottom: 0;
+        }
+
+    </style>
+</head>
+<body>
+<header>
+    <div class="header-top">
+        <div class="title"><span>维尼直播</span><small>&nbsp轻关易道，通商宽农</small></div>
+    </div>
+    <nav class="navbar  navbar-inverse" role="navigation" style="border-radius: 0">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target="#example-navbar-collapse">
+                    <span class="sr-only">切换导航</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="example-navbar-collapse">
+                <ul class="nav navbar-nav main-module">
+                    <li class="active homepage"><a href=""/myForum/home.htm">主页</a></li>
+                    <li><a class="mod1" href="#">模块1</a></li>
+                    <li><a class="mod2" href="#">模块2</a></li>
+                    <li><a class="mod3" href="#">模块3</a></li>
+                    <li><a class="mod4" href="#">模块4</a></li>
+                    <li><a class="mod5" href="#">模块5</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right login-group">
+                    <li><a href="./register.html"><span class="glyphicon glyphicon-user"></span> 注册</a></li>
+                    <li><a href="./login.html"><span class="glyphicon glyphicon-log-in"></span> 登录</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<section>
+    <div class="container-fluid recommend">
+        <!--<div class="recommend-box row">-->
+                <!--<div class="col-xs-2"> <img src="/img/frog.jpg" class="img-rounded"></div>-->
+            <!--<div class="col-xs-10 content">-->
+                <!--<div class="title">这个文章的标题</div>-->
+                <!--<div class="author">作者：江泽民</div>-->
+                <!--<div class="info-group">-->
+                    <!--<span class="date">日期：</span>-->
+                    <!--<span class="page-view">浏览量：</span>-->
+                <!--</div>-->
+            <!--</div>-->
+
+        <!--</div>-->
+    </div>
+    <script>
+        let articles = [];
+        $.get("api/article-browser/get/all",{},function (result) {
+            if(result) {
+                articles = result.articles;
+                render();
+            }
+        });
+        let render = function () {
+            for(let i in articles) {
+                $(".recommend").append("   <div class=\"recommend-box row\">\n" +
+                    "                <div class=\"col-xs-2\"> <img src=\"img/frog.jpg\" class=\"img-rounded\"></div>\n" +
+                    "            <div class=\"col-xs-10 content\">\n" +
+                    "                <div class=\"title\">"+articles[i].heading+"</div>\n" +
+                    "                <div class=\"author\">作者："+articles[i].writerNickname+"</div>\n" +
+                    "                <div class=\"info-group\">\n" +
+                    "                    <span class=\"date\">日期："+formatDateTime(articles[i].date)+"&nbsp&nbsp</span>\n" +
+                    "                    <span class=\"page-view\">浏览量："+articles[i].pageView+"</span>\n" +
+                    "                </div>\n" +
+                    "            </div>\n" +
+                    "\n" +
+                    "        </div>");
+            }
+            $(".recommend-box").each(function (index) {
+                $(this).click(function () {
+                    window.location.href = "article/"+articles[index].articleId+".html";
+                });
+            });
+        };
+    </script>
+</section>
+<footer>
+    <div class="title">本网站仅供学习，由XiWinnie制作</div>
+</footer>
+</body>
+</html>

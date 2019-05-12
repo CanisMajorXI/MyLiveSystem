@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap 4 Website Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/live-css.css">
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <style>
+        .fakeimg {
+            height: 200px;
+            background: #aaa;
+        }
+    </style>
+</head>
+<body>
+
+
+<header class="jumbotron text-center" style="margin-bottom:0;padding: 0;color: whitesmoke">
+    <div style="width: 100%;position: absolute;z-index: 100;">
+        <div><h1 style="font-size: 60px;padding-top: 20px">维尼直播</h1></div>
+        <div><p style="font-size: 30px;padding-top: 20px">分享你的生活</p></div>
+        <!--        <span style="color: white;">-->
+
+        </span>
+    </div>
+
+
+    <div id="demo" class="carousel slide" data-ride="carousel" data-interval="3000">
+
+        <!--            <ul class="carousel-indicators">-->
+        <!--                <li data-target="#demo" data-slide-to="0" class="active"></li>-->
+        <!--                <li data-target="#demo" data-slide-to="1"></li>-->
+        <!--                <li data-target="#demo" data-slide-to="2"></li>-->
+        <!--            </ul>-->
+
+        <!-- 轮播图片 -->
+        <div class="carousel-inner" style="height: 220px">
+            <div class="carousel-item active">
+                <img src="img/head1.jfif">
+            </div>
+            <div class="carousel-item">
+                <img src="img/head2.jfif">
+            </div>
+            <div class="carousel-item">
+                <img src="img/head3.jfif">
+            </div>
+            <div class="carousel-item">
+                <img src="img/head4.jpg">
+            </div>
+            <div class="carousel-item">
+                <img src="img/head5.png">
+            </div>
+        </div>
+
+        <!--&lt;!&ndash;     左右切换按钮&ndash;&gt;-->
+        <!--            <a class="carousel-control-prev" href="#demo" data-slide="prev" >-->
+        <!--                <span class="carousel-control-prev-icon"></span>-->
+        <!--            </a>-->
+        <!--            <a class="carousel-control-next" href="#demo" data-slide="next">-->
+        <!--                <span class="carousel-control-next-icon"></span>-->
+        <!--            </a>-->
+
+    </div>
+</header>
+
+<!--<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4" style="margin-bottom: 0">-->
+<!--    <a class="navbar-brand" href="#">维尼直播</a>-->
+<!--    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"-->
+<!--            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--        <span class="navbar-toggler-icon"></span>-->
+<!--    </button>-->
+<!--    <div class="collapse navbar-collapse" id="navbarCollapse">-->
+<!--        <ul class="navbar-nav" >-->
+<!--            <li class="nav-item active">-->
+<!--                <a class="nav-link" href="主页">Home <span class="sr-only">(current)</span></a>-->
+<!--            </li>-->
+<!--            <li class="nav-item">-->
+<!--                <a class="nav-link" href="#">游戏</a>-->
+<!--            </li>-->
+<!--            <li class="nav-item">-->
+<!--                <a class="nav-link" href="#">美食</a>-->
+<!--            </li>-->
+<!--            <li class="nav-item">-->
+<!--                <a class="nav-link" href="#">学习</a>-->
+<!--            </li>-->
+
+<!--            <li class="nav-item">-->
+<!--                <a class="nav-link" href="#">户外</a>-->
+<!--            </li>-->
+<!--        </ul>-->
+<!--&lt;!&ndash;        <form class="form-inline mt-2 mt-md-0 ml-auto">&ndash;&gt;-->
+<!--&lt;!&ndash;            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">&ndash;&gt;-->
+<!--&lt;!&ndash;            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">搜素</button>&ndash;&gt;-->
+<!--&lt;!&ndash;        </form>&ndash;&gt;-->
+<!--        <ul class="navbar-nav ml-auto">-->
+<!--            <li class="btn btn-info" href="#" role="button" style="margin: 3px 6px 3px 6px">&nbsp注册&nbsp</li>-->
+<!--            <li class="btn btn-success" href="#" role="button" style="margin: 3px 6px 3px 6px">&nbsp登录&nbsp</li>-->
+<!--&lt;!&ndash;            <li><a href="./register.html"><span class="glyphicon glyphicon-user"></span> 注册</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;            <li><a href="./login.html"><span class="glyphicon glyphicon-log-in"></span> 登录</a></li>&ndash;&gt;-->
+<!--        </ul>-->
+<!--    </div>-->
+<!--</nav>-->
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark" style="background-color:rgba(255,255,255,0.5)">
+    <a class="navbar-brand" href="#">维尼直播</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="#">首页</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">游戏</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">户外</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">科技</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">舞蹈</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">学习</a>
+            </li>
+        </ul>
+
+
+        <ul class="navbar-nav ml-auto">
+            <div></div>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                Dropdown link
+            </a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Link 1</a>
+                <a class="dropdown-item" href="#">Link 2</a>
+                <a class="dropdown-item" href="#">Link 3</a>
+            </div>
+        </li>
+<!--            <li class="btn btn-info" href="#" role="button" style="margin: 3px 6px 3px 6px">&nbsp注册&nbsp</li>-->
+<!--            <li class="btn btn-success" href="#" role="button" style="margin: 3px 6px 3px 6px">&nbsp登录&nbsp</li>-->
+        </ul>
+    </div>
+</nav>
+<div class="show-video">
+    <!--    <div class=""></div>-->
+    <video id="videoElement" class="centeredVideo" controls autoplay width="100%" height="100%">Your browser is too old
+        which doesn't support HTML5 video.
+    </video>
+</div>
+<br>
+<!--<div class="controls">-->
+<!--    &lt;!&ndash;<button onclick="flv_load()">加载</button>&ndash;&gt;-->
+<!--    <button onclick="flv_start()">开始</button>-->
+<!--    <button onclick="flv_pause()">暂停</button>-->
+<!--    <button onclick="flv_destroy()">停止</button>-->
+<!--    <input style="width:100px" type="text" name="seekpoint" />-->
+<!--    <button onclick="flv_seekto()">跳转</button>-->
+<!--</div>-->
+<script src="https://cdn.bootcss.com/flv.js/1.5.0/flv.js"></script>
+<script>
+    var player = document.getElementById('videoElement');
+    if (flvjs.isSupported()) {
+        var flvPlayer = flvjs.createPlayer({
+            type: 'flv',
+            "isLive": true,//<====加个这个
+            //52.184.100.96
+            // url: 'http://40.115.165.184:80/live/mylive.flv',//<==自行修改
+            url: 'http://52.184.100.96:80/live/mylive.flv',//<==自行修改
+
+        });
+        flvPlayer.attachMediaElement(videoElement);
+        flvPlayer.load(); //加载52.184.100.96
+        flv_start();
+    }
+
+    function flv_start() {
+        player.play();
+    }
+
+    function flv_pause() {
+        player.pause();
+    }
+
+    function flv_destroy() {
+        player.pause();
+        player.unload();
+        player.detachMediaElement();
+        player.destroy();
+        player = null;
+    }
+
+    function flv_seekto() {
+        player.currentTime = parseFloat(document.getElementsByName('seekpoint')[0].value);
+    }
+</script>
+<!--<div class="container" style="margin-top:30px">-->
+<!--    <div class="row">-->
+<!--        <div class="col-sm-4">-->
+<!--            <h2>关于我</h2>-->
+<!--            <h5>我的照片:</h5>-->
+<!--            <div class="fakeimg">这边插入图像</div>-->
+<!--            <p>关于我的介绍..</p>-->
+<!--            <h3>一些链接</h3>-->
+<!--            <p>说明文本</p>-->
+<!--            <ul class="nav nav-pills flex-column">-->
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link active" href="#">激活状态</a>-->
+<!--                </li>-->
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link" href="#">链接</a>-->
+<!--                </li>-->
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link" href="#">链接</a>-->
+<!--                </li>-->
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link disabled" href="#">禁用</a>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--            <hr class="d-sm-none">-->
+<!--        </div>-->
+<!--        <div class="col-sm-8">-->
+<!--            <h2>标题</h2>-->
+<!--            <h5>副标题</h5>-->
+<!--            <div class="fakeimg">图像</div>-->
+<!--            <p>一些文本..</p>-->
+<!--            <p>菜鸟教程，学的不仅是技术，更是梦想！！！菜鸟教程，学的不仅是技术，更是梦想！！！菜鸟教程，学的不仅是技术，更是梦想！！！</p>-->
+<!--            <br>-->
+<!--            <h2>标题</h2>-->
+<!--            <h5>副标题</h5>-->
+<!--            <div class="fakeimg">图像</div>-->
+<!--            <p>一些文本..</p>-->
+<!--            <p>菜鸟教程，学的不仅是技术，更是梦想！！！菜鸟教程，学的不仅是技术，更是梦想！！！菜鸟教程，学的不仅是技术，更是梦想！！！</p>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+<div class="jumbotron text-center" style="margin-bottom:0">
+    <p>底部内容</p>
+</div>
+
+</body>
+</html>

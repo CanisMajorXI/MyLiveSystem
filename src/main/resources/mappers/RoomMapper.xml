@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.sdust.mylive.dao.RoomMapper">
+  <resultMap id="BaseResultMap" type="edu.sdust.mylive.model.Room">
+    <!--@mbg.generated-->
+    <id column="roomid" jdbcType="INTEGER" property="roomid" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="room_name" jdbcType="VARCHAR" property="roomName" />
+    <result column="room_intro" jdbcType="VARCHAR" property="roomIntro" />
+    <result column="class" jdbcType="INTEGER" property="classification" />
+    <result column="exp" jdbcType="INTEGER" property="exp" />
+    <result column="valid" jdbcType="BOOLEAN" property="valid" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbg.generated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbg.generated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    roomid, email, room_name, room_intro, `class`, `exp`, `valid`
+  </sql>
+  <select id="selectByExample" parameterType="edu.sdust.mylive.model.RoomExample" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from room_table
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from room_table
+    where roomid = #{roomid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from room_table
+    where roomid = #{roomid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="edu.sdust.mylive.model.RoomExample">
+    <!--@mbg.generated-->
+    delete from room_table
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" keyColumn="roomid" keyProperty="roomid" parameterType="edu.sdust.mylive.model.Room" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into room_table (email, room_name, room_intro, 
+      `class`, `exp`, `valid`
+      )
+    values (#{email,jdbcType=VARCHAR}, #{roomName,jdbcType=VARCHAR}, #{roomIntro,jdbcType=VARCHAR}, 
+      #{classification,jdbcType=INTEGER}, #{exp,jdbcType=INTEGER}, #{valid,jdbcType=BOOLEAN}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="roomid" keyProperty="roomid" parameterType="edu.sdust.mylive.model.Room" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into room_table
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="email != null">
+        email,
+      </if>
+      <if test="roomName != null">
+        room_name,
+      </if>
+      <if test="roomIntro != null">
+        room_intro,
+      </if>
+      <if test="classification != null">
+        `class`,
+      </if>
+      <if test="exp != null">
+        `exp`,
+      </if>
+      <if test="valid != null">
+        `valid`,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="roomName != null">
+        #{roomName,jdbcType=VARCHAR},
+      </if>
+      <if test="roomIntro != null">
+        #{roomIntro,jdbcType=VARCHAR},
+      </if>
+      <if test="classification != null">
+        #{classification,jdbcType=INTEGER},
+      </if>
+      <if test="exp != null">
+        #{exp,jdbcType=INTEGER},
+      </if>
+      <if test="valid != null">
+        #{valid,jdbcType=BOOLEAN},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="edu.sdust.mylive.model.RoomExample" resultType="java.lang.Long">
+    <!--@mbg.generated-->
+    select count(*) from room_table
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbg.generated-->
+    update room_table
+    <set>
+      <if test="record.roomid != null">
+        roomid = #{record.roomid,jdbcType=INTEGER},
+      </if>
+      <if test="record.email != null">
+        email = #{record.email,jdbcType=VARCHAR},
+      </if>
+      <if test="record.roomName != null">
+        room_name = #{record.roomName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.roomIntro != null">
+        room_intro = #{record.roomIntro,jdbcType=VARCHAR},
+      </if>
+      <if test="record.classification != null">
+        `class` = #{record.classification,jdbcType=INTEGER},
+      </if>
+      <if test="record.exp != null">
+        `exp` = #{record.exp,jdbcType=INTEGER},
+      </if>
+      <if test="record.valid != null">
+        `valid` = #{record.valid,jdbcType=BOOLEAN},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbg.generated-->
+    update room_table
+    set roomid = #{record.roomid,jdbcType=INTEGER},
+      email = #{record.email,jdbcType=VARCHAR},
+      room_name = #{record.roomName,jdbcType=VARCHAR},
+      room_intro = #{record.roomIntro,jdbcType=VARCHAR},
+      `class` = #{record.classification,jdbcType=INTEGER},
+      `exp` = #{record.exp,jdbcType=INTEGER},
+      `valid` = #{record.valid,jdbcType=BOOLEAN}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="edu.sdust.mylive.model.Room">
+    <!--@mbg.generated-->
+    update room_table
+    <set>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="roomName != null">
+        room_name = #{roomName,jdbcType=VARCHAR},
+      </if>
+      <if test="roomIntro != null">
+        room_intro = #{roomIntro,jdbcType=VARCHAR},
+      </if>
+      <if test="classification != null">
+        `class` = #{classification,jdbcType=INTEGER},
+      </if>
+      <if test="exp != null">
+        `exp` = #{exp,jdbcType=INTEGER},
+      </if>
+      <if test="valid != null">
+        `valid` = #{valid,jdbcType=BOOLEAN},
+      </if>
+    </set>
+    where roomid = #{roomid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="edu.sdust.mylive.model.Room">
+    <!--@mbg.generated-->
+    update room_table
+    set email = #{email,jdbcType=VARCHAR},
+      room_name = #{roomName,jdbcType=VARCHAR},
+      room_intro = #{roomIntro,jdbcType=VARCHAR},
+      `class` = #{classification,jdbcType=INTEGER},
+      `exp` = #{exp,jdbcType=INTEGER},
+      `valid` = #{valid,jdbcType=BOOLEAN}
+    where roomid = #{roomid,jdbcType=INTEGER}
+  </update>
+</mapper>

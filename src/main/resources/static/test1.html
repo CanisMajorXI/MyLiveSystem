@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>开始使用layui</title>
+    <link rel="stylesheet" href="./layui/css/layui.css">
+</head>
+<body>
+
+<!-- 你的HTML代码 -->
+
+<script src="./layui/layui.js"></script>
+<script>
+    layui.config({
+        base: './js/' //你存放新模块的目录，注意，不是layui的模块目录
+    }).use('layui-index'); //加载入口
+</script>
+</body>
+</html>

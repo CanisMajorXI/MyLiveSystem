@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:text="${#ctx.session == null}"></div>
+<!--<div th:text="${session.SPRING_SECURITY_CONTEXT}"></div>-->
+<!--<div th:text="${#ctx.session.getAttribute('SPRING_SECURITY_CONTEXT') == null}"></div>-->
+<!--<div th:switch="${#session.getAttribute('SPRING_SECURITY_CONTEXT') == null}"></div>-->
+<!--    <div th:case='true'>-->
+<!--        true-->
+<!--    </div>-->
+<!--    <div th:case='true'>-->
+<!--        true-->
+
+
+<!--    </div>-->
+<!--    <div th:case='false'>false</div>-->
+<!--    <div th:case='false'>false</div>-->
+<!--</div>-->
+<!--<p th:text="${#session.getAttribute('SPRING_SECURITY_CONTEXT')}==null?'空':'非空'"></p>-->
+<!--<p th:text="${session.SPRING_SECURITY_CONTEXT}" th:unless="${session == null}">[...]</p>-->
+<!--<div th: th:text="session.containsKey('key1')"></div>-->
+<!--<div th:if="${#ctx.session.getAttribute('SPRING_SECURITY_CONTEXT') == null}"></div>-->
+<!--<p th:value='${#ctx.session.getAttribute("SPRING_SECURITY_CONTEXT")}'></p>-->
+</body>
+</html>

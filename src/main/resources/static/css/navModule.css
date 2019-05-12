@@ -1,0 +1,42 @@
+body {
+    background-color: rgb(239, 239, 239);
+}
+header .header-top{
+    background-image: url("../img/winnie2.jpg");
+    background-position-y: 20%;
+    background-size: 100%;
+    background-color: #5c5c5c;
+    height: 80px;
+}
+.header-top .title {
+    padding-top: 15px;
+    padding-left: 22px;
+    font-size: 50px;
+    font-weight: bold;
+}
+.header-top .title small {
+    font-weight: 400;
+    font-size: 25px;
+    font-style: italic;
+    color: #666666;
+    padding-left: 10px;
+    user-select: none;
+}
+.header-top .title span {
+    cursor: pointer;
+    user-select: none;
+}
+.header-top .title span:hover {
+    color: #888888;
+}
+
+footer {
+    height: 100px;
+    background-color: rgb(16,16,16);
+}
+footer .title {
+    padding-top: 20px;
+    text-align: center;
+    color: #eeeeee;
+    font-size: 25px;
+}

@@ -1,0 +1,49 @@
+
+spring:
+  #  security:
+  #    user:
+  #      name: myuser
+  #      password: 123456
+  devtools:
+    restart:
+      enabled: true
+  session:
+    store-type: redis
+    redis:
+      flush-mode: on_save
+      namespace: mysession
+  #  thymeleaf:
+  #    mode: HTML
+  #    encoding: UTF-8
+  #    servlet:
+  #      content-type: text/html
+  #    cache: false
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://winnie.live:3306/mylive
+    username: root
+    password: Zqw123456
+    #type: com.mysql.jdbc.jdbc2.optional.MysqlConnectionPoolDataSource
+  redis:
+    database: 0
+    host: winnie.live
+    password: Zqw123456
+    port: 6379
+    jedis:
+      pool:
+        max-active: 8
+        min-idle: 0
+        max-wait: -1
+    timeout: 0
+mybatis:
+  mapper-locations: classpath:mappers/*.xml
+
+#system:
+#  user:
+#    password:
+#      secret: uvwxyz
+server:
+  servlet:
+    session:
+      timeout: 2000
+debug: true

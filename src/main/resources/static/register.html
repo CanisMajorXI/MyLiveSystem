@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>注册新用户</title>
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/modification.css"/>
+
+<body>
+
+<div class="register-container">
+    <h1>我的论坛&nbspMyForum</h1>
+
+    <div class="connect">
+        <a href="https://github.com/XiWinnie/HabourManagementSystem"> <img src="img/github_128px_1173875_easyicon.net.png"></a>
+    </div>
+
+    <form action="" method="post" id="registerForm">
+        <div>
+            <input type="text" name="email" class="email" placeholder="输入邮箱地址" autocomplete="off" id="number"/>
+        </div>
+        <div>
+            <input type="password" name="password" class="password" placeholder="输入密码" oncontextmenu="return false"
+                   onpaste="return false"/>
+        </div>
+        <div>
+            <input type="password" name="confirm_password" class="confirm_password" placeholder="再次输入密码"
+                   oncontextmenu="return false" onpaste="return false"/>
+        </div>
+        <div class="vericodemodule">
+            <input type="number" name="veriinput" class="veriinput" placeholder="点击获取验证码" oncontextmenu="return false"
+                   onpaste="return false"/>
+            <button class="getcode" type="button" id="verificationcode">获取验证码</button>
+        </div>
+        <div>
+
+        </div>
+
+        <button id="submit" type="submit">注 册</button>
+    </form>
+    <a href="login.html">
+        <button type="button" class="register-tis">已经有账号？</button>
+    </a>
+
+</div>
+
+
+<script src="js/jquery.min.js"></script>
+<script src="js/common.js"></script>
+<!--背景图片自动更换-->
+<script src="js/supersized.3.2.7.min.js"></script>
+<script src="js/supersized-init.js"></script>
+<!--表单验证-->
+<script src="js/jquery.validate.min.js?var1.14.0"></script>
+<script src="js/jquery.cookie.js"></script>
+<script type="text/javascript" src="js/md5.js"></script>
+</body>
+</html>
+<!--
+本代码由js代码收集并编辑整理;
+尊重他人劳动成果;
+转载请保留js代码链接 - www.jsdaima.com
+-->
