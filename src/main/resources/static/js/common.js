@@ -12,7 +12,7 @@
 //jquery.validate表单验证
 $(document).ready(function () {
 
-    if(window.location.href.indexOf("error") !== -1) {
+    if(window.location.href.indexOf("th-error.html") !== -1) {
         alert("用户名或密码错误！");
         $(".email").val($.cookie("last-username"));
         // $(".password").val($.cookie("last-username"));
@@ -198,7 +198,7 @@ $(document).ready(function () {
                         alert("注册成功！");
                         $.cookie('email', email);
                         $.cookie('password', password);
-                        $(location).attr('href', 'login.html');
+                        $(location).attr('href', 'login1.html');
                     } else if (result === 'wrongcode') {
                         alert("验证码错误！");
                     } else {

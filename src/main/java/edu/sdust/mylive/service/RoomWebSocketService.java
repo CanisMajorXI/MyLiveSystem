@@ -1,113 +1,76 @@
 package edu.sdust.mylive.service;
 
-import javafx.beans.binding.ObjectExpression;
+import edu.sdust.mylive.model.UserBasicInfo;
+import edu.sdust.mylive.model.UserBasicInfoExample;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import javax.websocket.*;
 import javax.websocket.server.ServerEndpoint;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArraySet;
-import java.util.concurrent.atomic.AtomicInteger;
 
-@ServerEndpoint("/room/{roomId}/{isAnchor}")
+@ServerEndpoint("/room/{roomId}")
 
 @Service
 public class RoomWebSocketService {
+    @Resource
+    UserBasicInfoService userBasicInfoService = null;
     private static int onlineCount = 0;
     private Integer roomId;
-    private boolean isAnchor = false;
-    public static final Map<Integer, Set<RoomWebSocketService>> socketMap = new ConcurrentHashMap<>();
+    private static final Map<Integer, Set<Session>> roomMap = new ConcurrentHashMap<>();
     //private static final AtomicInteger connectionIds = new AtomicInteger(0);
     //public static final Map<String, Integer> countsInRooms = new ConcurrentHashMap<>();
-
+    private static final Map<String,String>nicknameMap = new HashMap<>();
     //  public static CopyOnWriteArraySet<UserWebSocketService> websocketSet = new CopyOnWriteArraySet<>();
     private Session session = null;
-//    private String email = "";
-//
-//
-//    public String getEmail() {
-//        return email;
-//    }
-//
-//    public void setEmail(String email) {
-//        this.email = email;
-//    }
+
 
     @OnOpen
     public void onOpen(Session session) {
-        isAnchor = Boolean.parseBoolean(session.getPathParameters().get("isAnchor"));
+       // isAnchor = Boolean.parseBoolean(session.getPathParameters().get("isAnchor"));
         roomId = Integer.parseInt(session.getPathParameters().get("roomId"));
-        if (socketMap.get(roomId) == null) {
-            socketMap.put(roomId, new CopyOnWriteArraySet<>());
+        if (roomMap.get(roomId) == null) {
+            roomMap.put(roomId, new CopyOnWriteArraySet<>());
         }
-        socketMap.get(roomId).add(this);
-        //  rooms.get(roomId);
-
-//        this.session = session;
-//        String isA = session.getPathParameters().get("1");
-//        if (isA.equals("0")) {
-//            isAnchor = true;
-//            Set<RoomWebSocketService> roomWebSocketServices = new CopyOnWriteArraySet<>();
-//            roomWebSocketServices.add(this);
-//            rooms.put(roomId, roomWebSocketServices);
-//            countsInRooms.put(roomId,1);
-//        } else {
-//            rooms.get(roomId).add(this);
-//
+//        String email = session.getUserPrincipal().getName();
+//        UserBasicInfoExample userBasicInfoExample = new UserBasicInfoExample();
+//        userBasicInfoExample.createCriteria().andEmailEqualTo(email);
+//        System.out.println("email" + email);
+//        UserBasicInfo userBasicInfo = userBasicInfoService.selectByPrimaryKey(email);
+//        List<UserBasicInfo>userBasicInfoList = userBasicInfoService.selectByExample(userBasicInfoExample);
+//        if(userBasicInfoList.size() == 1) {
+          nicknameMap.put("513768474@qq.com","陈婷润");
+          nicknameMap.put("2639376258@qq.com","冯旭阳");
 //        }
-//        this.roomId = session.getPathParameters().get("0");
-//        rooms.put(roomId,this);
-
-//        this.email = session.getUserPrincipal().getName();
-//        boolean found = false;
-//        for (Session curSession : session.getOpenSessions()) {
-//            curSession.getUserPrincipal().getName();
-//            if (socketService.getEmail().equals(this.email)) {
-//                found = true;
-//                break;
-//            }
-//        }
-//        websocketSet.add(this);
-//        if (!found) addOnlineCount(1);
-        System.out.println("new connect! ,current online people: " + socketMap.get(roomId).size());
+        roomMap.get(roomId).add(session);
+        System.out.println("new connect! ,current online people: " + roomMap.get(roomId).size());
 
     }
 
     @OnClose
-    public void onClose() {
-        Set<RoomWebSocketService> set = socketMap.get(roomId);
-        set.remove(this);
-//        if (isAnchor) {
-//            Set<RoomWebSocketService> set = rooms.get(roomId);
-//            for (RoomWebSocketService roomWebSocketService : set) {
-//                try {
-//                    roomWebSocketService.session.close();
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-//
-//            }
-//        }
-//        int count = 0;
-//        for (UserWebSocketService socketService : websocketSet) {
-//            if (socketService.getEmail().equals(email)) {
-//                websocketSet.remove(socketService);
-//            }
-//        }
-//        subOnlineCount(1);
-        System.out.println("one of the connection has closed,current online people " + socketMap.get(roomId).size());
+    public void onClose(Session session) {
+        Set<Session> set = roomMap.get(roomId);
+        set.remove(session);
+        System.out.println("one of the connection has closed,current online people " + roomMap.get(roomId).size());
 
     }
 
     @OnMessage
     public void onMessage(String message, Session session) {
-        session.getOpenSessions();
-        for (RoomWebSocketService socketService : socketMap.get(roomId)) {
+        String email = session.getUserPrincipal().getName();
+        String nickname = nicknameMap.get(email);
+        message = nickname + "说: "+message;
+      //  session.getOpenSessions();
+        for (Session recvSession : roomMap.get(roomId)) {
             try {
-                socketService.session.getBasicRemote().sendText(message);
+                recvSession.getBasicRemote().sendText(message);
+                //socketService.session.getBasicRemote().sendText(message);
             } catch (IOException e) {
                 e.printStackTrace();
             }

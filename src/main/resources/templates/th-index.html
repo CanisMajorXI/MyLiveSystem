@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <!-- Site made with Mobirise Website Builder v4.10.0, https://mobirise.com -->
     <meta charset="UTF-8">
@@ -28,60 +28,9 @@
 
 </head>
 <body>
-<section class="menu cid-rpLr1R13zm" id="menu2-r" once="menu">
+<div th:replace="th-common::header"></div>
 
-
-    <nav class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm bg-color transparent">
-        <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
-                class="navbar-toggler navbar-toggler-right" data-target="#navbarSupportedContent" data-toggle="collapse"
-                type="button">
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </button>
-        <div class="menu-logo">
-            <div class="navbar-brand">
-                <span class="navbar-logo">
-                    <a href="https://mobirise.co">
-                        <img alt="Mobirise" src="assets/images/winnie3-204x164.png" style="height: 3.8rem;" title="">
-                    </a>
-                </span>
-                <span class="navbar-caption-wrap"><a class="navbar-caption text-black display-5"
-                                                     href="https://mobirise.co">维尼直播</a></span>
-            </div>
-        </div>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
-                <li class="nav-item">
-                    <a class="nav-link link text-black display-5" href="https://mobirise.co"><span
-                            class="mobi-mbri mobi-mbri-home mbr-iconfont mbr-iconfont-btn"></span>主页</a>
-                </li>
-                <li class="nav-item"><a class="nav-link link text-black display-5" href="https://mobirise.co"><span
-                        class="socicon socicon-buffer mbr-iconfont mbr-iconfont-btn" style="font-size: 26px;"></span>学习</a>
-                </li>
-                <li class="nav-item"><a class="nav-link link text-black display-5" href="https://mobirise.co"><span
-                        class="socicon socicon-zynga mbr-iconfont mbr-iconfont-btn"
-                        style="font-size: 27px;"></span>户外</a></li>
-                <li class="nav-item">
-                    <a class="nav-link link text-black display-5" href="https://mobirise.co"><span
-                            class="socicon socicon-blizzard mbr-iconfont mbr-iconfont-btn"></span>游戏 &nbsp; &nbsp;
-                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</a>
-                </li>
-            </ul>
-            <div class="navbar-buttons mbr-section-btn"><a class="btn btn-sm btn-info display-5"
-                                                           href="tel:+1-234-567-8901"><span
-                    class="mbrib-website-theme mbr-iconfont mbr-iconfont-btn"></span>注册
-            </a> <a class="btn btn-sm btn-primary display-5" href="tel:+1-234-567-8901"><span
-                    class="mbrib-login mbr-iconfont mbr-iconfont-btn"></span>登录
-            </a></div>
-        </div>
-    </nav>
-</section>
-
-<section class="engine"><a href="https://mobirise.info/e">how to make your own site for free</a></section>
+<!--<section class="engine"><a href="https://mobirise.info/e">how to make your own site for free</a></section>-->
 <section class="mbr-gallery mbr-slider-carousel cid-rpLLD6meBe" id="gallery4-1a">
 
 
@@ -107,25 +56,25 @@
                             <div class="mbr-gallery-item col-lg-3 col-md-6 col-sm-12 p-2" data-video-url="false">
                                 <div href="index.html" data-slide-to="1">
                                     <img alt="" src="room/background/10000001.jpg" title="">
-                                    <a href="index.html"><span class="icon-video"></span></a><span
+                                    <a href="room/10000001"><span class="icon-video"></span></a><span th:text="${rooms[0].roomName}"
                                         class="mbr-gallery-title mbr-fonts-style display-7">这是推荐1</span></div>
                             </div>
                             <div class="mbr-gallery-item col-lg-3 col-md-6 col-sm-12 p-2" data-video-url="false">
                                 <div data-slide-to="2" ><img
-                                        alt="" src="room/background/10000002.jpg" title=""><a href="index.html"><span
-                                        class="icon-video"></span></a><span
+                                        alt="" src="room/background/10000002.jpg" title=""><a  href="room/10000002"><span
+                                        class="icon-video"></span></a><span th:text="${rooms[1].roomName}"
                                         class="mbr-gallery-title mbr-fonts-style display-7">这是推荐2</span></div>
                             </div>
                             <div class="mbr-gallery-item col-lg-3 col-md-6 col-sm-12 p-2" data-video-url="false">
                                 <div data-slide-to="3" ><img
-                                        alt="" src="room/background/10000003.jpg" title=""><a href="index.html"><span
-                                        class="icon-video"></span></a><span
+                                        alt="" src="room/background/10000003.jpg" title=""><a  href="room/10000003"><span
+                                        class="icon-video"></span></a><span th:text="${rooms[2].roomName}"
                                         class="mbr-gallery-title mbr-fonts-style display-7">这是推荐3</span></div>
                             </div>
                             <div class="mbr-gallery-item col-lg-3 col-md-6 col-sm-12 p-2" data-video-url="false">
                                 <div data-slide-to="4" ><img
-                                        alt="" src="room/background/10000004.jpg" title=""><a href="index.html"><span
-                                        class="icon-video"></span></a><span
+                                        alt="" src="room/background/10000004.jpg" title=""><a  href="room/10000004"><span
+                                        class="icon-video"></span></a><span th:text="${rooms[3].roomName}"
                                         class="mbr-gallery-title mbr-fonts-style display-7">这是推荐4</span></div>
                             </div>
                         </div>
@@ -184,7 +133,8 @@ if (flvjs.isSupported()) {
         "isLive": true,//<====加个这个
         //52.184.100.96
         // url: 'http://40.115.165.184:80/live/mylive.flv',//<==自行修改
-        url: 'http://52.184.100.96:80/live1/live.flv',//<==自行修改
+        // url: 'http://winnie.live/room/10000001.flv',//<==自行修改
+        url: 'http://192.168.214.131/room/10000001.flv',//<==自行修改
 
     });
     flvPlayer.attachMediaElement(videoElement);
@@ -573,7 +523,6 @@ function flv_seekto() {
     </div>
 
 </section>
-
 <section class="mbr-section info2 cid-rpMYIIKNSs" id="info2-1m">
 
 
@@ -667,72 +616,9 @@ function flv_seekto() {
     </div>
 </section>
 
-<section class="cid-rpLNljSPpT" id="footer5-1b">
+<section th:replace="th-common::footer"></section>
 
-
-    <div class="container">
-        <div class="media-container-row">
-            <div class="col-md-3">
-                <div class="media-wrap">
-                    <a href="https://mobirise.co/">
-                        <img alt="Mobirise" src="assets/images/winnie3-192x154.png" title="">
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-9">
-                <p class="mbr-text align-right links mbr-fonts-style display-7">本网页仅供测试学习用，请勿用作其他用途，创谢，，，</p>
-            </div>
-        </div>
-        <div class="footer-lower">
-            <div class="media-container-row">
-                <div class="col-md-12">
-                    <hr>
-                </div>
-            </div>
-            <div class="media-container-row mbr-white">
-                <div class="col-md-6 copyright">
-                    <p class="mbr-text mbr-fonts-style display-7">
-                        © Copyright 2019 WinnieLive - All Rights Reserved
-                    </p>
-                </div>
-                <div class="col-md-6">
-                    <div class="social-list align-right">
-                        <div class="soc-item">
-                            <a href="https://twitter.com/mobirise" target="_blank">
-                                <span class="mbr-iconfont mbr-iconfont-social socicon-qq socicon"></span>
-                            </a>
-                        </div>
-                        <div class="soc-item">
-                            <a href="https://www.facebook.com/pages/Mobirise/1616226671953247" target="_blank">
-                                <span class="mbr-iconfont mbr-iconfont-social socicon-github socicon"></span>
-                            </a>
-                        </div>
-                        <div class="soc-item">
-                            <a href="https://www.youtube.com/c/mobirise" target="_blank">
-                                <span class="mbr-iconfont mbr-iconfont-social socicon-wechat socicon"></span>
-                            </a>
-                        </div>
-                        <div class="soc-item">
-                            <a href="https://instagram.com/mobirise" target="_blank">
-                                <span class="mbr-iconfont mbr-iconfont-social socicon-google socicon"></span>
-                            </a>
-                        </div>
-                        <div class="soc-item">
-                            <a href="https://plus.google.com/u/0/+Mobirise" target="_blank">
-                                <span class="mbr-iconfont mbr-iconfont-social socicon-weibo socicon"></span>
-                            </a>
-                        </div>
-                        <div class="soc-item">
-                            <a href="https://www.behance.net/Mobirise" target="_blank">
-                                <span class="mbr-iconfont mbr-iconfont-social socicon-windows socicon"></span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<span></span>
 
 
 <script src="assets/web/assets/jquery/jquery.min.js"></script>

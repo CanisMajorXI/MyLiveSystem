@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <!-- Site made with Mobirise Website Builder v4.10.0, https://mobirise.com -->
     <meta charset="UTF-8">
@@ -9,7 +9,7 @@
     <link href="assets/images/winnie3-204x164.png" rel="shortcut icon" type="image/x-icon">
     <meta content="" name="description">
 
-    <title>Home</title>
+    <title>错误页面</title>
     <link href="assets/web/assets/mobirise-icons/mobirise-icons.css" rel="stylesheet">
     <link href="assets/web/assets/mobirise-icons2/mobirise2.css" rel="stylesheet">
     <link href="assets/web/assets/mobirise-icons-bold/mobirise-icons-bold.css" rel="stylesheet">
@@ -28,11 +28,7 @@
 
 </head>
 <body>
-
-
-<span th:if="${#session == null}" th:text="111111"></span>
-<span th:unless="${#session == null}" th:text="22222"></span>
-
+<p style="height: 1000px">发生了一些问题，，，</p>
 
 <script src="assets/web/assets/jquery/jquery.min.js"></script>
 <script src="assets/popper/popper.min.js"></script>
@@ -54,25 +50,5 @@
 
 
 <input name="animation" type="hidden">
-<!--<div th:text="${#ctx.session == null}"></div>-->
-<!--<div th:text="${session.SPRING_SECURITY_CONTEXT}"></div>-->
-<!--<div th:text="${#ctx.session.getAttribute('SPRING_SECURITY_CONTEXT') == null}"></div>-->
-<!--<div th:switch="${#session.getAttribute('SPRING_SECURITY_CONTEXT') == null}"></div>-->
-<!--    <div th:case='true'>-->
-<!--        true-->
-<!--    </div>-->
-<!--    <div th:case='true'>-->
-<!--        true-->
-
-
-<!--    </div>-->
-<!--    <div th:case='false'>false</div>-->
-<!--    <div th:case='false'>false</div>-->
-<!--</div>-->
-<!--<p th:text="${#session.getAttribute('SPRING_SECURITY_CONTEXT')}==null?'空':'非空'"></p>-->
-<!--<p th:text="${session.SPRING_SECURITY_CONTEXT}" th:unless="${session == null}">[...]</p>-->
-<!--<div th: th:text="session.containsKey('key1')"></div>-->
-<!--<div th:if="${#ctx.session.getAttribute('SPRING_SECURITY_CONTEXT') == null}"></div>-->
-<!--<p th:value='${#ctx.session.getAttribute("SPRING_SECURITY_CONTEXT")}'></p>-->
 </body>
 </html>

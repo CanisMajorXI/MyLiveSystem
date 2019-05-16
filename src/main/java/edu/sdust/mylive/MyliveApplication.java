@@ -12,4 +12,10 @@ public class MyliveApplication {
         SpringApplication.run(MyliveApplication.class, args);
     }
 
+//    @Override
+//    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+//        return builder.sources(MyliveApplication.class);
+//    }
+
+
 }

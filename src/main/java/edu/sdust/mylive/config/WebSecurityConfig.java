@@ -33,9 +33,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers("/admin/**").hasAuthority("admin")
-                .and().formLogin().loginPage("/login.html").loginProcessingUrl("/api/user/login")
+                .and().formLogin().loginPage("/login").loginProcessingUrl("/api/user/login")
                 .usernameParameter("email")
-                .defaultSuccessUrl("/hello").and().csrf().disable().logout().logoutUrl("/api/user/logout");
+                .defaultSuccessUrl("/index").and().csrf().disable().logout().logoutUrl("/api/user/logout");
     }
 
      class MyPasswordEncoder implements PasswordEncoder {
